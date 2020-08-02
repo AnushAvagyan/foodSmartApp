@@ -1,0 +1,44 @@
+body {
+
+  background-color: rgb(218, 216, 216);
+}
+
+.nav {
+  padding: 15px;
+  color: rgb(189, 208, 243);
+  background-color: rgb(95, 93, 93);
+  font-weight: bold;
+  margin-right: 35px;
+  font-size: 1.1em;
+}
+.title {
+  background-color: gray;
+  color: white;
+}
+.heading {
+  font-size: 50px;
+  padding-left: 100px;
+  padding-top: 50px;
+  font-weight: bold;
+}
+.subtitle {
+  font-size: 20px;
+  padding-left: 100px;
+  padding-bottom: 50px;
+}
+img {
+  width: 500px;
+  height: 500px;
+}
+h2 {
+  padding-top: 20px;
+  color: gray;
+}
+.text-muted {
+  font-style: italic;
+}
+
+.row {
+  padding-left: 70px;
+
+}
