@@ -32,40 +32,24 @@ const Navigation = () => {
            </span>
            </Link>
   </Nav.Item>
+  <NavDropdown title="Select a meal" className="nav-dr">
+        <NavDropdown.Item eventKey="4.1"><Link to={'breakfast'} >
+           <span>Breakfast </span>
+           </Link></NavDropdown.Item>
+        <NavDropdown.Item eventKey="4.2"><Link to={'lunch'} >
+           <span>Lunch </span>
+           </Link></NavDropdown.Item>
+        <NavDropdown.Item eventKey="4.3"><Link to={'dinner'} >
+           <span>Dinner </span>
+           </Link></NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item eventKey="4.4"><Link to={'snacks'} >
+           <span>Snacks </span>
+           </Link></NavDropdown.Item>
+      </NavDropdown>
 </Nav>
   );
 };
-
-
-
-
-// const Navigation = (props) => (
-
-// <nav className="navbar navbar-expand-sm bg-light">
-// <a className="navbar-brand" href="#">Home</a>
-// <ul className="navbar-nav">
-//   <li className="nav-item">
-//   <Link to={'add_new_recipe'} >
-//           <span className="new">
-
-//             Add a New Recipe
-//           </span>
-//           </Link>
-//   </li>
-//   <li className="nav-item">
-//   <Link to={'explore'} >
-//           <span className="explore" >
-//             Explore
-//           </span>
-//           </Link>
-//   </li>
-
-// </ul>
-
-// </nav>
-
-
-// )
 
 export default Navigation;
 
