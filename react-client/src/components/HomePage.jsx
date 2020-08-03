@@ -63,7 +63,7 @@ const HomePage = (props) => (
 
         <div className="row featurette">
           <div className="col-md-7">
-          <Link to={'snacks'}  >
+          <Link to={'snack'}  >
           <h2 className="featurette-heading">Healthy snacks </h2>
         </Link>
 

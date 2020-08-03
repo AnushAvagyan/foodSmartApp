@@ -27,9 +27,7 @@ const RecipeList = (props) => {
   return (
 
     <div>
-    <h4> List Component </h4>
-
-    { recipes.map(recipe => <ListItem recipe={recipe}/>)}
+    { recipes.map(recipe => <ListItem recipe={recipe} key={recipe.id}/>)}
   </div>
   )
 }

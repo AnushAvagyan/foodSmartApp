@@ -46,8 +46,8 @@ Once the project moves into development, the press release can be used as a touc
 
   Notes:
 
-  1. Main page - navigation to create a new recipe and explore buttons, Selection of breakfast, lunch, dinner or snack options
-  2. Recipe list page - Selection (breakfast, lunch ...). Recipe title, image, labels
+  1. DONE - Main page - navigation to create a new recipe and explore buttons, Selection of breakfast, lunch, dinner or snack options
+  2. WIP - Recipe list page - based on the selection (breakfast, lunch ...). Recipe title, image, labels
   3. Recipe details page - title, labels, picture, nutritional value (calculated and provided by the app in the backend), ingredients, steps. Edit button, delete recipe button.
   4. Create new recipe page - Form to add title, ingredients (either one textbox for all, or separately, plus need to collect weight - grams, lb...), steps (textbox to add desc), add a picture, save. Preview.
 

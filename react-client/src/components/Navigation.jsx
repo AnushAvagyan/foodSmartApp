@@ -11,7 +11,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown'
 const Navigation = () => {
   return (
     <Nav className="justify-content-center" defaultActiveKey="/">
-  <Nav.Item><Link to={'explore'} >
+  <Nav.Item><Link to={'/'} >
            <span className="nav" >
              Home
            </span>
@@ -43,7 +43,7 @@ const Navigation = () => {
            <span>Dinner </span>
            </Link></NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item eventKey="4.4"><Link to={'snacks'} >
+        <NavDropdown.Item eventKey="4.4"><Link to={'snack'} >
            <span>Snacks </span>
            </Link></NavDropdown.Item>
       </NavDropdown>

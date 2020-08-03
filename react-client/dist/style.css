@@ -2,6 +2,13 @@ body {
 
   background-color: rgb(218, 216, 216);
 }
+.card {
+
+  background-color: rgb(218, 216, 216);
+}
+h4 {
+  padding-top: 20px;
+}
 
 .nav {
   padding: 15px;
@@ -18,6 +25,10 @@ body {
   font-weight: bold;
   margin-right: 35px;
   font-size: 1.1em;
+}
+.h1 {
+  padding: 20px;
+  text-align: center;
 }
 .title {
   background-color: gray;
@@ -48,5 +59,10 @@ h2 {
 
 .row {
   padding-left: 70px;
+  padding-bottom: 10px;
 
+}
+.badge {
+  margin-right: 20px;
+  background-color: #4f98a3;
 }

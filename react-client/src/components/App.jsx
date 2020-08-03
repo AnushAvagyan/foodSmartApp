@@ -10,6 +10,7 @@ import {
 import Navigation from './Navigation.jsx';
 import HomePage from './HomePage.jsx';
 import RecipeList from './RecipeList.jsx';
+import Recipe from './Recipe.jsx';
 
 
 class App extends React.Component {
@@ -20,37 +21,11 @@ class App extends React.Component {
       recipes: []
     }
 
-    this.getRecipes = this.getRecipes.bind(this);
+
   }
 
   componentDidMount() {
-
-    //this.getRecipes();
   }
-
-  getRecipes(mealType) {
-    $.ajax({
-      url: `/recipes/${mealType}`,
-      success: (data) => {
-        this.setState({
-          recipes: data
-        })
-      },
-      error: (err) => {
-        console.log('err', err);
-      }
-    });
-  }
-
-//   render () {
-//     return (
-//     <div>
-//       <h1>Item List</h1>
-//       <List items={this.state.items}/>
-//     </div>
-//     )
-//   }
-// }
 
   render() {
 
@@ -63,8 +38,12 @@ class App extends React.Component {
            <HomePage />
           </Route>
 
+
           <Route exact path='/:meal'>
            <RecipeList />
+          </Route>
+          <Route exact path='/recipe/:id'>
+           <Recipe />
           </Route>
 
           {/* <Route exact path='/add_new_recipe'>
