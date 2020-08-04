@@ -22,10 +22,11 @@ const getRecipeById = (id, callback) => {
 
 const insertRecipe = (recipeData, callback) => {
   var recipe = new Recipe(recipeData);
-  recipe.save(function (err) {
+  recipe.save(function (err, data) {
     if (err) {
       return console.error(err);
     }
+    console.log(data);
     callback();
   });
 }

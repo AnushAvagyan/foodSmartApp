@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ajax } from 'jquery';
+import $ from 'jquery';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,20 +11,31 @@ import Navigation from './Navigation.jsx';
 import HomePage from './HomePage.jsx';
 import RecipeList from './RecipeList.jsx';
 import Recipe from './Recipe.jsx';
+import AddRecipe from './AddRecipe.jsx';
 
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      meal: null,
-      recipes: []
-    }
 
-
+    this.saveRecipe = this.saveRecipe.bind(this);
   }
 
-  componentDidMount() {
+  saveRecipe(event) {
+    event.preventDefault();
+
+    $.ajax({
+      url: 'http://localhost:3000/recipes',
+      type: 'POST',
+      data: $('form').serializeArray(),
+      success: function(data) {
+         console.log('success', data);
+      },
+      error: function(err) {
+        console.log("Failed  ", err);
+      }
+
+    })
   }
 
   render() {
@@ -32,26 +43,20 @@ class App extends React.Component {
     return (
       <div className="main">
         <Navigation />
-
         <Switch>
           <Route exact path='/'>
            <HomePage />
           </Route>
-
-
+          <Route exact path='/add_new_recipe'>
+           <AddRecipe handleClick={(event) => this.saveRecipe(event)} />
+          </Route>
           <Route exact path='/:meal'>
            <RecipeList />
           </Route>
           <Route exact path='/recipe/:id'>
            <Recipe />
           </Route>
-
-          {/* <Route exact path='/add_new_recipe'>
-           <NewRecipe  />
-          </Route> */}
-
         </Switch>
-
       </div>
     )
   }

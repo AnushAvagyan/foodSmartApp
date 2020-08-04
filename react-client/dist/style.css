@@ -9,7 +9,9 @@ body {
 h4 {
   padding-top: 20px;
 }
-
+.container {
+  padding-top: 20px;;
+}
 .nav {
   padding: 15px;
   color: rgb(218, 216, 216);

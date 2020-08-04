@@ -27,8 +27,8 @@ const RecipeList = (props) => {
   return (
 
     <div>
-    { recipes.map(recipe => <ListItem recipe={recipe} key={recipe.id}/>)}
-  </div>
+      { recipes.map(recipe => <ListItem recipe={recipe} key={recipe.id}/>)}
+    </div>
   )
 }
 
