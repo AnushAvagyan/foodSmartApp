@@ -7,8 +7,14 @@ import Form from 'react-bootstrap/Form';
 
 const AddImage = (props) => {
 
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState([]);
   //let { id } = useParams();
+  const addId = (id) => {
+    //console.log('doing', id, event.target.files[0])
+    event.target.id = id;
+    setImage(event.target)
+
+  }
 
 
   return (
@@ -17,7 +23,7 @@ const AddImage = (props) => {
        <Form  encType="multipart/form-data">
         <Form.Group>
           <Form.Control label="Upload a picture" type="file" accept="image/png, image/jpeg"  onChange={(event) =>
-            setImage(event.target.files[0])} />
+             addId(props.recipeId)} />
         </Form.Group>
 
         {image && <button onClick={(event) => props.handleImageUpload(image, props.recipeId)}>

@@ -3,7 +3,6 @@ const db = require('./index.js');
 mongoose.Promise = global.Promise;
 
 const recipeSchema = new mongoose.Schema({
-  id: {type: Number, required: true, unique: true},
   name: String,
   description: String,
   meal: String,

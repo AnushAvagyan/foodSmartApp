@@ -24,21 +24,15 @@ class App extends React.Component {
 
   saveRecipe(event) {
     event.preventDefault();
-    //console.log(image);
-
-    // let data = new FormData();
-    // //Append files to form data
-    // data.append("file", image, image.name);
-    // data.append("form", $('form').serializeArray());
 
     $.ajax({
       url: 'http://localhost:3000/recipes',
       type: 'POST',
-      // processData: false,
-      // contentType: false,
       data: $('form').serializeArray(),
       success: function(data) {
          console.log('success', data);
+         alert('Thank you! You recipe hss been saved');
+         window.location = 'http://localhost:3000';
       },
       error: function(err) {
         console.log("Failed  ", err);
@@ -46,28 +40,30 @@ class App extends React.Component {
     })
   }
 
-  uploadImage(image, id) {
+  uploadImage(image) {
     event.preventDefault();
-    console.log(image);
 
     let imageData = new FormData();
-    //Append files to form data
-    imageData.append("image", image, image.name);
+    //Append file to form data
+    imageData.append("image", image.files[0], image.files[0].name);
 
     $.ajax({
-      url: `http://localhost:3000/recipes/${id}/images`,
+      url: `http://localhost:3000/recipes/${image.id}/images`,
       type: 'POST',
       processData: false,
       contentType: false,
       data: imageData,
       success: function(data) {
          console.log('success', data);
+         alert('Thank you! You image hss been saved');
+         window.location = 'http://localhost:3000';
       },
       error: function(err) {
         console.log("Failed  ", err);
       }
     })
   }
+
 
 
   render() {
