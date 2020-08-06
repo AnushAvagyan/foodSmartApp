@@ -12,7 +12,7 @@ const getRecipes = (meal, callback) => {
 
 const getRecipeById = (id, callback) => {
 
-  Recipe.find({id: id}).exec((err, data) => {
+  Recipe.find({_id: id}).exec((err, data) => {
     if (err) {
       return console.error(err);
     }
@@ -30,6 +30,15 @@ const insertRecipe = (recipeData, callback) => {
     callback();
   });
 }
+const updateImage = (id, url, callback) => {
+
+  Recipe.findByIdAndUpdate({_id: id}, {url: url}).exec((err, data) => {
+    if (err) {
+      return console.error(err);
+    }
+    callback(data);
+  });
+}
 
 
 const seedDatabase = (data) => {
@@ -44,3 +53,5 @@ module.exports.getRecipes = getRecipes;
 module.exports.getRecipeById = getRecipeById;
 module.exports.seedDatabase = seedDatabase;
 module.exports.insertRecipe = insertRecipe;
+module.exports.updateImage = updateImage;
+

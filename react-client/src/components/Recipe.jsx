@@ -3,6 +3,7 @@ import $ from 'jquery';
 import { useState, useEffect } from 'react';
 import { useParams} from "react-router";
 import Image from 'react-bootstrap/Image'
+import AddImage from './AddImage.jsx';
 
 
 const Recipe = (props) => {
@@ -31,7 +32,8 @@ const Recipe = (props) => {
       <p> {recipe.description} </p>
       <div className='row'>
         <div className="col-lg-7">
-          <img src={recipe.url} className="img-fluid" alt="Responsive image"></img>
+          <img src={recipe.url} className="img-fluid" alt="Responsive image" />
+          <AddImage recipeId={id} handleImageUpload={(event) => props.handleClick(event)}/>
         </div>
         {recipe.nutrition && <div className="col-lg-3 card">
           <h4>Nutrition</h4>

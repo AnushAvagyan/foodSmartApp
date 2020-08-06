@@ -1,1 +1,12 @@
-node_modules
+## NPM ##
+npm
+npm-debug.log
+node_modules/
+
+
+# Compiled Dirs (http://nodejs.org/api/addons.html)
+build/
+dist/
+
+
+.env

@@ -9,7 +9,7 @@ import {
 const ListItem = (props) => (
   <div className="row featurette">
     <div className="col-md-7">
-      <Link to={`recipe/${props.recipe.id}`}  >
+      <Link to={`recipe/${props.recipe._id}`}  >
         <h2 className="featurette-heading">{props.recipe.name} </h2>
       </Link>
       { props.recipe.labels.map(label => <span className="badge badge-info">{label}&nbsp;</span>)}

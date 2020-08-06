@@ -8,12 +8,10 @@ import Col from 'react-bootstrap/Col'
 
 const AddRecipe = (props) => {
 
-  const [recipe, setRecipe] = useState([]);
-
   return (
     <div className='container'>
       <p className="h1">Add a recipe to your book</p>
-       <Form >
+       <Form  encType="multipart/form-data" >
   <Form.Group>
     <Form.Label>Your recipe name</Form.Label>
     <Form.Control name='name' placeholder="Enter text" />
@@ -56,13 +54,14 @@ const AddRecipe = (props) => {
     </Form.Group>
   </Form.Row>
 
-  <Form.Group>
-    <Form.File label="Upload a picture" name = 'url'/>
-  </Form.Group>
 
-  <Button variant="primary" type="submit" onClick={(event) => props.handleClick(event)}>
+
+  <Button type='submit' variant="primary" onClick={() => props.handleClick(event)}>
     Submit
   </Button>
+
+
+
 </Form>
 
     </div>
