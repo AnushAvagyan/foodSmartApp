@@ -32,15 +32,6 @@ app.get('/recipe/:id', function (req, res) {
   })
 });
 
-// add a new recipe
-app.post('/recipes', function(req, res) {
-  console.log(req.body);
-
-  insertRecipe(req.body, (data) => {
-    res.status(200).json(data);
-    res.end();
-  })
-});
 app.post('/recipes/:id/images', function(req, res) {
   console.log('recipe id test1', req.params.id);
   singleUpload(req, res, function (err) {
@@ -66,6 +57,15 @@ app.post('/recipes/:id/images', function(req, res) {
 
 });
 
+// add a new recipe
+app.post('/recipes', function(req, res) {
+  console.log(req.body);
+
+  insertRecipe(req.body, (data) => {
+    res.status(200).json(data);
+    res.end();
+  })
+});
 
 
 app.listen(3000, function() {

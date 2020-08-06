@@ -31,7 +31,7 @@ class App extends React.Component {
       data: $('form').serializeArray(),
       success: function(data) {
          console.log('success', data);
-         alert('Thank you! You recipe hss been saved');
+         alert('Thank you! You recipe has been saved');
          window.location = 'http://localhost:3000';
       },
       error: function(err) {
