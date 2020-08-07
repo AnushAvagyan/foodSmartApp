@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react';
 import { useParams} from "react-router";
 import Image from 'react-bootstrap/Image'
 import AddImage from './AddImage.jsx';
+import LikeButton from './LikeButton.jsx';
 
 
 const Recipe = (props) => {
 
   const [recipe, setRecipe] = useState([]);
-  const [favorite, toggle] = useState(false);
+
   let { id } = useParams();
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const Recipe = (props) => {
       url: `http://localhost:3000/recipe/${id}`,
       success: (data) => {
         setRecipe(data[0]);
-        toggle(data[0].favorite);
+
       },
       error: (err) => {
         console.log('err', err);
@@ -27,10 +28,7 @@ const Recipe = (props) => {
 
   }, []);
 
-  const like = (bool, id) => {
-    toggle(bool);
-    props.handleLike(bool, id);
-  }
+
 
   return (
 
@@ -41,8 +39,7 @@ const Recipe = (props) => {
         <div className="col-lg-7">
           <div className='img-container'>
             <img src={recipe.url} className="img-fluid" alt="Responsive image" />
-            <i className="fa fa-heart icon" style={{color: favorite ? 'red' : 'gray', fontSize: '48px'}}
-            onClick={() => like(!favorite, recipe._id)}></i>
+            <LikeButton recipe={recipe} handleLike={props.handleLike} />
           </div>
 
           <AddImage recipeId={id} handleImageUpload={(event) => props.handleClick(event)}/>

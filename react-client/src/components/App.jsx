@@ -65,7 +65,7 @@ class App extends React.Component {
   }
 
   likeRecipe(like, id) {
-    
+
     var obj = {favorite: like};
 
     $.ajax({
@@ -96,7 +96,7 @@ class App extends React.Component {
            <AddRecipe handleClick={() => this.saveRecipe(event)} />
           </Route>
           <Route exact path='/:meal'>
-           <RecipeList />
+           <RecipeList handleLike={this.likeRecipe} />
           </Route>
           <Route exact path='/recipe/:id'>
            <Recipe handleClick={(event) => this.uploadImage(event)} handleLike={this.likeRecipe}/>

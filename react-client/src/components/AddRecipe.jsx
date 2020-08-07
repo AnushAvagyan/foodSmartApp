@@ -1,6 +1,7 @@
 import React from "react";
 import $ from 'jquery';
 import { useState, useEffect } from 'react';
+import InputField from './InputField.jsx';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col'
@@ -31,7 +32,7 @@ const AddRecipe = (props) => {
   </Form.Group>
   <Form.Group>
     <Form.Label>List your ingredient in the textbox</Form.Label>
-    <Form.Control as="textarea" rows="3" name='ingredients'/>
+    <InputField />
   </Form.Group>
   <Form.Group>
     <Form.Label>Enter detailed directions</Form.Label>

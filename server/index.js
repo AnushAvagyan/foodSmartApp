@@ -63,13 +63,14 @@ app.post('/recipes/:id/favorite', function(req, res) {
 
 // add a new recipe
 app.post('/recipes', function(req, res) {
-  
+  console.log(req.body);
+
   insertRecipe(req.body, (data) => {
     res.status(200).json('Success');
     res.end();
   })
 });
-
+// https://world.openfoodfacts.org/category/apples.json
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');

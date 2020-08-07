@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import LikeButton from './LikeButton.jsx';
 
 const ListItem = (props) => (
   <div className="row featurette">
@@ -17,6 +18,7 @@ const ListItem = (props) => (
     </div>
     <div className="col-md-5">
       <img className="featurette-image img-fluid mx-auto"alt="500x500" src={props.recipe.url}/>
+      <LikeButton recipe={props.recipe} handleLike={props.handleLike} />
     </div>
   </div>
 )
