@@ -20,6 +20,7 @@ class App extends React.Component {
 
     this.saveRecipe = this.saveRecipe.bind(this);
     this.uploadImage = this.uploadImage.bind(this);
+    this.likeRecipe = this.likeRecipe.bind(this);
   }
 
   saveRecipe(event) {
@@ -64,6 +65,23 @@ class App extends React.Component {
     })
   }
 
+  likeRecipe(like, id) {
+    console.log(like);
+    var obj = {favorite: like};
+
+    $.ajax({
+      url: `http://localhost:3000/recipes/${id}/favorite`,
+      type: 'POST',
+      data: obj,
+      success: function(data) {
+         console.log('success', data);
+      },
+      error: function(err) {
+        console.log("Failed  ", err);
+      }
+    })
+  }
+
 
 
   render() {
@@ -82,7 +100,7 @@ class App extends React.Component {
            <RecipeList />
           </Route>
           <Route exact path='/recipe/:id'>
-           <Recipe handleClick={(event) => this.uploadImage(event)}/>
+           <Recipe handleClick={(event) => this.uploadImage(event)} handleLike={this.likeRecipe}/>
           </Route>
         </Switch>
       </div>

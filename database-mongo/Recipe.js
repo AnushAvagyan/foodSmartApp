@@ -11,6 +11,7 @@ const recipeSchema = new mongoose.Schema({
   labels: Array,
   cookTime: Number,
   servings: Number,
+  favorite: Boolean,
   nutrition: {
     calories: Number,
     carbohydrates: Number,

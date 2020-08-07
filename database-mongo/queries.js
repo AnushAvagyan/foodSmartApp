@@ -40,6 +40,16 @@ const updateImage = (id, url, callback) => {
   });
 }
 
+const likeToggle = (id, val, callback) => {
+
+  Recipe.findByIdAndUpdate({_id: id}, val).exec((err, data) => {
+    if (err) {
+      return console.error(err);
+    }
+    callback(data);
+  });
+}
+
 
 const seedDatabase = (data) => {
 
@@ -54,4 +64,5 @@ module.exports.getRecipeById = getRecipeById;
 module.exports.seedDatabase = seedDatabase;
 module.exports.insertRecipe = insertRecipe;
 module.exports.updateImage = updateImage;
+module.exports.likeToggle = likeToggle;
 

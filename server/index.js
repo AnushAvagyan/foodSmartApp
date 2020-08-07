@@ -4,7 +4,8 @@ const {
   getRecipes,
   getRecipeById,
   insertRecipe,
-  updateImage
+  updateImage,
+  likeToggle
 }  = require('../database-mongo/queries.js');
 require('dotenv').config();
 const upload = require("./services/ImageUpload");
@@ -55,6 +56,14 @@ app.post('/recipes/:id/images', function(req, res) {
 
   });
 
+});
+
+app.post('/recipes/:id/favorite', function(req, res) {
+
+  likeToggle(req.params.id, req.body, (data) => {
+    res.status(200).json(data);
+    res.end();
+  })
 });
 
 // add a new recipe

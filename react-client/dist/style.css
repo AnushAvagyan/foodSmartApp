@@ -68,3 +68,10 @@ h2 {
   margin-right: 20px;
   background-color: #4f98a3;
 }
+
+.icon {
+  position: absolute;
+  top: 10px;
+  left: 430px;
+  cursor: pointer;
+}

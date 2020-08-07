@@ -9,6 +9,7 @@ import AddImage from './AddImage.jsx';
 const Recipe = (props) => {
 
   const [recipe, setRecipe] = useState([]);
+  const [favorite, toggle] = useState(false);
   let { id } = useParams();
 
   useEffect(() => {
@@ -17,6 +18,7 @@ const Recipe = (props) => {
       url: `http://localhost:3000/recipe/${id}`,
       success: (data) => {
         setRecipe(data[0]);
+        toggle(data[0].favorite);
       },
       error: (err) => {
         console.log('err', err);
@@ -25,6 +27,11 @@ const Recipe = (props) => {
 
   }, []);
 
+  const like = (bool, id) => {
+    toggle(bool);
+    props.handleLike(bool, id);
+  }
+
   return (
 
     <div className='container'>
@@ -32,7 +39,12 @@ const Recipe = (props) => {
       <p> {recipe.description} </p>
       <div className='row'>
         <div className="col-lg-7">
-          <img src={recipe.url} className="img-fluid" alt="Responsive image" />
+          <div className='img-container'>
+            <img src={recipe.url} className="img-fluid" alt="Responsive image" />
+            <i className="fa fa-heart icon" style={{color: favorite ? 'red' : 'gray', fontSize: '48px'}}
+            onClick={() => like(!favorite, recipe._id)}></i>
+          </div>
+
           <AddImage recipeId={id} handleImageUpload={(event) => props.handleClick(event)}/>
         </div>
         {recipe.nutrition && <div className="col-lg-3 card">
