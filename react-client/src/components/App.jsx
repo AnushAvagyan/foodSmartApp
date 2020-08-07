@@ -43,7 +43,6 @@ class App extends React.Component {
 
   uploadImage(image) {
     event.preventDefault();
-
     let imageData = new FormData();
     //Append file to form data
     imageData.append("image", image.files[0], image.files[0].name);
@@ -56,7 +55,7 @@ class App extends React.Component {
       data: imageData,
       success: function(data) {
          console.log('success', data);
-         alert('Thank you! You image hss been saved');
+         alert('Thank you! You image has been saved');
          window.location = 'http://localhost:3000';
       },
       error: function(err) {
@@ -66,7 +65,7 @@ class App extends React.Component {
   }
 
   likeRecipe(like, id) {
-    console.log(like);
+    
     var obj = {favorite: like};
 
     $.ajax({

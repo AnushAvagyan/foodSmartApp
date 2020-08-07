@@ -46,20 +46,15 @@ app.post('/recipes/:id/images', function(req, res) {
         },
       });
     }
-
     imageUrl = req.file.location;
     updateImage(req.params.id, imageUrl, (data) => {
       res.status(200).json(data);
       res.end();
     })
-
-
   });
-
 });
 
 app.post('/recipes/:id/favorite', function(req, res) {
-
   likeToggle(req.params.id, req.body, (data) => {
     res.status(200).json(data);
     res.end();
@@ -68,10 +63,9 @@ app.post('/recipes/:id/favorite', function(req, res) {
 
 // add a new recipe
 app.post('/recipes', function(req, res) {
-  console.log(req.body);
-
+  
   insertRecipe(req.body, (data) => {
-    res.status(200).json(data);
+    res.status(200).json('Success');
     res.end();
   })
 });

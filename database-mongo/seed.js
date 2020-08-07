@@ -22,7 +22,7 @@ const insertSampleData = function() {
       meal: meal[Math.round(Math.random() * meal.length)],
       steps: [steps[Math.round(Math.random() * steps.length)], steps[Math.round(Math.random() * steps.length)], steps[Math.round(Math.random() * steps.length)], steps[Math.round(Math.random() * steps.length)], steps[Math.round(Math.random() * steps.length)], steps[Math.round(Math.random() * steps.length)], steps[Math.round(Math.random() * steps.length)], steps[Math.round(Math.random() * steps.length)]],
       ingredients: [ing[Math.round(Math.random() * ing.length)], ing[Math.round(Math.random() * ing.length)], ing[Math.round(Math.random() * ing.length)],ing[Math.round(Math.random() * ing.length)],ing[Math.round(Math.random() * ing.length)]],
-      labels: [labels[Math.round(Math.random() * labels.length-1)], labels[Math.round(Math.random() * labels.length-1)] ],
+      labels: [ labels[Math.round(Math.random() * labels.length-1)], labels[Math.round(Math.random() * labels.length-1)] ],
       cookTime: Math.round(Math.random() * 60),
       servings: Math.round(Math.random() * 6),
       favorite: Math.random() >= 0.5,
