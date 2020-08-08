@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const getNutritionData = async (ing) => {
-  
+
   var nutrition = {
     calories: 0,
     carbohydrates: 0,
@@ -31,6 +31,17 @@ const getNutritionData = async (ing) => {
 
 };
 
-module.exports = getNutritionData;
+const generateLabels = (data) => {
+  var labels = [];
+  if (data.calories > 500) {
+    labels.push('high calorie');
+  } else {
+    labels.push('low calorie', 'healthy');
+  }
+  return labels;
+}
+
+module.exports.getNutritionData = getNutritionData;
+module.exports.generateLabels = generateLabels;
 
 

@@ -9,7 +9,10 @@ const {
 }  = require('../database-mongo/queries.js');
 require('dotenv').config();
 const upload = require("./services/ImageUpload");
-const getNutritionData = require("./services/getNutritionData");
+const {
+  getNutritionData,
+  generateLabels
+ } = require("./services/getNutritionData");
 const singleUpload = upload.single("image");
 const app = express();
 // const cors = require("cors");
@@ -67,7 +70,7 @@ app.post('/recipes', async function(req, res) {
   var steps = req.body.steps.split('\r\n');
   req.body.steps = steps;
   req.body.nutrition = await getNutritionData(req.body.ingredients);
-  
+  req.body.labels = generateLabels(req.body.nutrition);
   insertRecipe(req.body, (data) => {
     res.status(200).json('Success');
     res.end();
