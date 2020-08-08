@@ -63,7 +63,8 @@ app.post('/recipes/:id/favorite', function(req, res) {
 
 // add a new recipe
 app.post('/recipes', function(req, res) {
-  console.log(req.body);
+  var steps = req.body.steps.split('\r\n');
+  req.body.steps = steps;
 
   insertRecipe(req.body, (data) => {
     res.status(200).json('Success');

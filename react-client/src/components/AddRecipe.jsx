@@ -16,9 +16,6 @@ const AddRecipe = (props) => {
   <Form.Group>
     <Form.Label>Your recipe name</Form.Label>
     <Form.Control name='name' placeholder="Enter text" />
-    <Form.Text className="text-muted">
-      Be creative and descriptive with the name
-    </Form.Text>
   </Form.Group>
 
   <Form.Group>
@@ -37,6 +34,9 @@ const AddRecipe = (props) => {
   <Form.Group>
     <Form.Label>Enter detailed directions</Form.Label>
     <Form.Control as="textarea" rows="3" name='steps'/>
+    <Form.Text className="text-muted">
+      Please enter each step in the new line
+    </Form.Text>
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlTextarea1">
     <Form.Label>Some notes or short description</Form.Label>
