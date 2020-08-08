@@ -31,8 +31,7 @@ const insertSampleData = function() {
         carbohydrates: Math.round(Math.random() * 50),
         protein: Math.round(Math.random() * 15),
         fat: Math.round(Math.random() * 10),
-        sugar: Math.round(Math.random() * 100),
-        fiber: Math.round(Math.random() * 10)
+        sugar: Math.round(Math.random() * 100)
   },
   url: `https://foodmvp.s3-us-west-1.amazonaws.com/${i}.jpg`
     }

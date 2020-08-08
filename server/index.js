@@ -9,6 +9,7 @@ const {
 }  = require('../database-mongo/queries.js');
 require('dotenv').config();
 const upload = require("./services/ImageUpload");
+const getNutritionData = require("./services/getNutritionData");
 const singleUpload = upload.single("image");
 const app = express();
 // const cors = require("cors");
@@ -62,16 +63,17 @@ app.post('/recipes/:id/favorite', function(req, res) {
 });
 
 // add a new recipe
-app.post('/recipes', function(req, res) {
+app.post('/recipes', async function(req, res) {
   var steps = req.body.steps.split('\r\n');
   req.body.steps = steps;
-
+  req.body.nutrition = await getNutritionData(req.body.ingredients);
+  
   insertRecipe(req.body, (data) => {
     res.status(200).json('Success');
     res.end();
   })
 });
-// https://world.openfoodfacts.org/category/apples.json
+
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');

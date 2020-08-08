@@ -47,12 +47,11 @@ const Recipe = (props) => {
         {recipe.nutrition && <div className="col-lg-3 card">
           <h4>Nutrition</h4>
             <ul>
-              <li> Calories <span>{recipe.nutrition.calories}</span> </li>
-              <li> Sugar <span>{recipe.nutrition.sugar}g</span> </li>
-              <li> Protein <span>{recipe.nutrition.protein}g</span> </li>
-              <li> Fat <span>{recipe.nutrition.fat}g</span> </li>
-              <li> Carbohydrates <span>{recipe.nutrition.carbohydrates}g</span> </li>
-              <li> Fiber <span>{recipe.nutrition.fiber}</span> </li>
+              <li> Calories <span>{recipe.nutrition.calories.toFixed(2)}</span> </li>
+              <li> Sugar <span>{recipe.nutrition.sugar.toFixed(2)}g</span> </li>
+              <li> Protein <span>{recipe.nutrition.protein.toFixed(2)}g</span> </li>
+              <li> Fat <span>{recipe.nutrition.fat.toFixed(2)}g</span> </li>
+              <li> Carbohydrates <span>{recipe.nutrition.carbohydrates.toFixed(2)}g</span> </li>
             </ul>
         </div>
         }
