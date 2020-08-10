@@ -5,7 +5,9 @@ const {
   getRecipeById,
   insertRecipe,
   updateImage,
-  likeToggle
+  likeToggle,
+  setWeight,
+  getWeight
 }  = require('../database-mongo/queries.js');
 require('dotenv').config();
 const upload = require("./services/ImageUpload");
@@ -76,6 +78,26 @@ app.post('/recipes', async function(req, res) {
     res.end();
   })
 });
+
+// add a new weight log
+app.post('/weight', function(req, res) {
+  setWeight(req.body, (data) => {
+
+    getWeight({}, (data) => {
+      res.status(200).json(data);
+      res.end();
+    })
+  })
+});
+
+app.get('/weight', function(req, res) {
+  getWeight({}, (data) => {
+    res.status(200).json(data);
+    res.end();
+  })
+});
+
+
 
 
 app.listen(3000, function() {

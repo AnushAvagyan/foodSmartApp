@@ -1,4 +1,5 @@
 const Recipe = require('./Recipe.js');
+const Weight = require('./Weight.js');
 
 const getRecipes = (meal, callback) => {
   let query = meal ? {meal: meal} : {};
@@ -59,10 +60,32 @@ const seedDatabase = (data) => {
 
 }
 
+const setWeight = (data, callback) => {
+  var weight = new Weight(data);
+  weight.save(function (err, data) {
+    if (err) {
+      return console.error(err);
+    }
+    console.log(data);
+    callback();
+  });
+}
+
+const getWeight = (data, callback) => {
+  Weight.find(data).exec((err, data) => {
+    if (err) {
+      return console.error(err);
+    }
+    callback(data);
+  });
+}
+
 module.exports.getRecipes = getRecipes;
 module.exports.getRecipeById = getRecipeById;
 module.exports.seedDatabase = seedDatabase;
 module.exports.insertRecipe = insertRecipe;
 module.exports.updateImage = updateImage;
 module.exports.likeToggle = likeToggle;
+module.exports.setWeight = setWeight;
+module.exports.getWeight = getWeight;
 

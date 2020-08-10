@@ -22,6 +22,11 @@ const Navigation = () => {
         </Link>
       </Nav.Item>
       <Nav.Item>
+        <Link to={'weight'} >
+          <span className="nav">Weight log</span>
+        </Link>
+      </Nav.Item>
+      <Nav.Item>
         <Link to={'explore'} >
           <span className="nav">Explore Ideas</span>
         </Link>

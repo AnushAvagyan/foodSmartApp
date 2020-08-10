@@ -12,6 +12,7 @@ import HomePage from './HomePage.jsx';
 import RecipeList from './RecipeList.jsx';
 import Recipe from './Recipe.jsx';
 import AddRecipe from './AddRecipe.jsx';
+import WeightLog from './WeightLog.jsx';
 
 
 class App extends React.Component {
@@ -94,6 +95,9 @@ class App extends React.Component {
           </Route>
           <Route exact path='/add_new_recipe'>
            <AddRecipe handleClick={() => this.saveRecipe(event)} />
+          </Route>
+          <Route exact path='/weight'>
+           <WeightLog />
           </Route>
           <Route exact path='/:meal'>
            <RecipeList handleLike={this.likeRecipe} />
