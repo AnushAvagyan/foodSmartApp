@@ -16,6 +16,7 @@ const {
   generateLabels
  } = require("./services/getNutritionData");
 const singleUpload = upload.single("image");
+
 const app = express();
 // const cors = require("cors");
 // app.use(cors());

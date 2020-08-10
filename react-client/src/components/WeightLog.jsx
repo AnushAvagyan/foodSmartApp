@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import $ from 'jquery';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import WeightChart from './WeightChart.jsx';
 
 
 const WeightLog = (props) => {
@@ -49,6 +50,7 @@ const WeightLog = (props) => {
 
     <div className='container'>
       <p className="h1">Track your weight</p>
+      <WeightChart data={weight}/>
       <Form >
         <Form.Group>
           <Form.Label>Log weight</Form.Label>

@@ -23,7 +23,7 @@ const Navigation = () => {
       </Nav.Item>
       <Nav.Item>
         <Link to={'weight'} >
-          <span className="nav">Weight log</span>
+          <span className="nav">Weight Trends</span>
         </Link>
       </Nav.Item>
       <Nav.Item>

@@ -3,7 +3,7 @@ body {
   background-color: rgb(218, 216, 216);
 }
 .card {
-
+  padding-left: 70px;
   background-color: rgb(218, 216, 216);
 }
 h4 {
@@ -17,7 +17,6 @@ h4 {
   color: rgb(218, 216, 216);
   background-color: rgb(95, 93, 93);
   font-weight: bold;
-  margin-right: 35px;
   font-size: 1.1em;
 }
 .nav-link {
@@ -60,7 +59,6 @@ h2 {
 }
 
 .row {
-  padding-left: 70px;
   padding-bottom: 10px;
 
 }
@@ -72,6 +70,10 @@ h2 {
 .icon {
   position: absolute;
   top: 10px;
-  left: 430px;
+  left: 400px;
   cursor: pointer;
+}
+
+.heart {
+  left: 430px;
 }
