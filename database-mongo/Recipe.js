@@ -20,7 +20,11 @@ const recipeSchema = new mongoose.Schema({
     sugar: Number
   },
   weight: Array,
-  url: String
+  url: String,
+  createdAt: {
+    type: Date,
+    default: Date.now()
+  }
 });
 
 const Recipe = mongoose.model('Recipe', recipeSchema);

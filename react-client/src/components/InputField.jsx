@@ -1,11 +1,9 @@
 import React from "react";
 import { useState } from 'react';
 
-
 const InputField = (props) => {
 
   const [fields, setFields] = useState(['ing']);
-
 
   const add = () => {
     const values = [...fields];

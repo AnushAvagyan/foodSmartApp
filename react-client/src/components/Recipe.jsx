@@ -56,11 +56,11 @@ const Recipe = (props) => {
           {recipe.nutrition && <div >
             <h4>Nutrition</h4>
               <ul>
-                <li> Calories <span>{recipe.nutrition.calories.toFixed(2)}</span> </li>
-                <li> Sugar <span>{recipe.nutrition.sugar.toFixed(2)}g</span> </li>
-                <li> Protein <span>{recipe.nutrition.protein.toFixed(2)}g</span> </li>
-                <li> Fat <span>{recipe.nutrition.fat.toFixed(2)}g</span> </li>
-                <li> Carbohydrates <span>{recipe.nutrition.carbohydrates.toFixed(2)}g</span> </li>
+                <li> Calories <span>{recipe.nutrition.calories.toFixed(0)}</span> </li>
+                <li> Sugar <span>{recipe.nutrition.sugar.toFixed(0)}g</span> </li>
+                <li> Protein <span>{recipe.nutrition.protein.toFixed(0)}g</span> </li>
+                <li> Fat <span>{recipe.nutrition.fat.toFixed(0)}g</span> </li>
+                <li> Carbohydrates <span>{recipe.nutrition.carbohydrates.toFixed(0)}g</span> </li>
               </ul>
           </div>
           }

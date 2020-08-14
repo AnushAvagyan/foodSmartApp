@@ -13,7 +13,12 @@ const ListItem = (props) => (
       <Link to={`recipe/${props.recipe._id}`}  >
         <h2 className="featurette-heading">{props.recipe.name} </h2>
       </Link>
-      { props.recipe.labels.map(label => <span className="badge badge-info">{label}&nbsp;</span>)}
+      { props.recipe.labels.map(label =>
+      <Link to={`${label}`}  >
+        <span className="badge badge-info" onClick={() => props.handleFilter('labels', label)} > {label}&nbsp;
+        </span>
+      </Link>
+      )}
       <p className="lead">{props.recipe.description}</p>
     </div>
     <div className="col-md-5">

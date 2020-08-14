@@ -6,7 +6,6 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-
 import Navigation from './Navigation.jsx';
 import HomePage from './HomePage.jsx';
 import RecipeList from './RecipeList.jsx';
@@ -66,9 +65,7 @@ class App extends React.Component {
   }
 
   likeRecipe(like, id) {
-
     var obj = {favorite: like};
-
     $.ajax({
       url: `http://localhost:3000/recipes/${id}/favorite`,
       type: 'POST',
@@ -81,8 +78,6 @@ class App extends React.Component {
       }
     })
   }
-
-
 
   render() {
 
@@ -99,7 +94,7 @@ class App extends React.Component {
           <Route exact path='/weight'>
            <WeightLog />
           </Route>
-          <Route exact path='/:meal'>
+          <Route exact path='/:filter'>
            <RecipeList handleLike={this.likeRecipe} />
           </Route>
           <Route exact path='/recipe/:id'>

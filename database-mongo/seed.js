@@ -1,6 +1,7 @@
 const db  = require('./index.js');
 const Recipe = require('./Recipe.js');
 var faker = require('faker');
+var moment = require('moment');
 
 var sampleData = [];
 
@@ -32,8 +33,9 @@ const insertSampleData = function() {
         protein: Math.round(Math.random() * 15),
         fat: Math.round(Math.random() * 10),
         sugar: Math.round(Math.random() * 100)
-  },
-  url: `https://foodmvp.s3-us-west-1.amazonaws.com/${i}.jpg`
+      },
+      url: `https://foodmvp.s3-us-west-1.amazonaws.com/${i}.jpg`,
+      createdAt: moment(new Date(+(new Date()) - Math.floor(Math.random()*1000000000000))).format()
     }
     sampleData.push(temp);
   }

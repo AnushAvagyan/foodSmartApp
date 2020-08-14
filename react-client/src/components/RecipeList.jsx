@@ -8,12 +8,17 @@ import ListItem from './ListItem.jsx';
 const RecipeList = (props) => {
 
   const [recipes, setRecipes] = useState([]);
-  let { meal } = useParams();
+  let { filter } = useParams();
 
-  useEffect(() => {
-
+  const filterList = (filterBy, filter) => {
+    if (filterBy === 'meal') {
+      var obj = { meal: filter };
+    } else {
+      var obj = { labels : filter };
+    }
     $.ajax({
-      url: `http://localhost:3000/recipes/${meal}`,
+      url: `http://localhost:3000/recipes/:${filterBy}`,
+      data: obj,
       success: (data) => {
         setRecipes(data);
       },
@@ -21,13 +26,18 @@ const RecipeList = (props) => {
         console.log('err', err);
       }
     });
+  }
+
+  useEffect(() => {
+
+    filterList('meal', filter);
 
   }, []);
 
   return (
 
     <div className='container'>
-      { recipes.map(recipe => <ListItem recipe={recipe} key={recipe._id} handleLike={props.handleLike} />)}
+      { recipes.map(recipe => <ListItem recipe={recipe} key={recipe._id} handleLike={props.handleLike} handleFilter={filterList} />)}
     </div>
   )
 }

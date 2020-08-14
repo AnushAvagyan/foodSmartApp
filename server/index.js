@@ -25,12 +25,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // get recipes data based on the meal type
-app.get('/recipes/:meal', function (req, res) {
-  getRecipes(req.params.meal, (data) => {
-    res.status(200).json(data);
-    res.end();
-  })
-});
+app.get('/recipes/:filter', function (req, res) {
+    getRecipes(req.query, (data) => {
+     res.status(200).json(data);
+     res.end();
+   })
+ });
 
 //get recipe data based on id
 app.get('/recipe/:id', function (req, res) {
@@ -41,7 +41,7 @@ app.get('/recipe/:id', function (req, res) {
 });
 
 app.post('/recipes/:id/images', function(req, res) {
-  console.log('recipe id test1', req.params.id);
+  //console.log('recipe id test1', req.params.id);
   singleUpload(req, res, function (err) {
     if (err) {
       return res.json({
@@ -83,7 +83,6 @@ app.post('/recipes', async function(req, res) {
 // add a new weight log
 app.post('/weight', function(req, res) {
   setWeight(req.body, (data) => {
-
     getWeight({}, (data) => {
       res.status(200).json(data);
       res.end();
@@ -97,8 +96,6 @@ app.get('/weight', function(req, res) {
     res.end();
   })
 });
-
-
 
 
 app.listen(3000, function() {

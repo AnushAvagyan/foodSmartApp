@@ -1,15 +1,25 @@
 const Recipe = require('./Recipe.js');
 const Weight = require('./Weight.js');
 
-const getRecipes = (meal, callback) => {
-  let query = meal ? {meal: meal} : {};
-  Recipe.find(query).exec((err, data) => {
+const getRecipes = (filter, callback) => {
+  //let query = filterBy === "meal" ? {meal: filter} : {label: filter};
+  Recipe.find(filter).sort({ createdAt: -1 }).exec((err, data) => {
     if (err) {
       return console.error(err);
     }
     callback(data);
   });
 }
+// const getRecipesByLabel = (label, callback) => {
+//   let query = label ? {label: meal} : {};
+//   { favouriteFoods: "sushi" }
+//   Recipe.find(query).exec((err, data) => {
+//     if (err) {
+//       return console.error(err);
+//     }
+//     callback(data);
+//   });
+// }
 
 const getRecipeById = (id, callback) => {
 
