@@ -17,19 +17,18 @@ Once the project moves into development, the press release can be used as a touc
  -->
 
 ## Heading ##
-  > Create your own recipe book
-
+  > Create your recipe book
 ## Sub-Heading ##
-  > Save your favorite recipes, find out nutritional value and more.
+  > Save your favorite recipes, get nutritional values, view your weight trends, log your current weight and more
 
 ## Summary ##
   > Let us help you organize your recipe book - create, edit and improve your recipes, add pictures, get nutritional value, plan your meals, and share ideas with friends.
 
 ## Problem ##
-  > Is your diet healthy? Not sure what to cook? Cooked a great meal a while ago and forgot the recipe?
+  > Is your diet healthy? Not sure what to cook?
 
 ## Solution ##
-  > This app will help you plan your meals, create recipes, try new things, improvize, document, reuse and share.
+  > This app will help you plan your meals, create recipes, try new things, improvize, document, reuse and share. View your weight trends to track your progress.
 
 ## Quote from You ##
   >
@@ -46,15 +45,18 @@ Once the project moves into development, the press release can be used as a touc
 
   Notes:
 
-  1. DONE - Main page - navigation to create a new recipe and explore buttons, Selection of breakfast, lunch, dinner or snack options
-  2. WIP - Recipe list page - based on the selection (breakfast, lunch ...). Recipe title, image, labels
-  3. Recipe details page - title, labels, picture, nutritional value (calculated and provided by the app in the backend), ingredients, steps. Edit button, delete recipe button.
-  4. Create new recipe page - Form to add title, ingredients (either one textbox for all, or separately, plus need to collect weight - grams, lb...), steps (textbox to add desc), add a picture, save. Preview.
+  1. DONE - Main page - navigation to create a new recipe, view weight trends and explore buttons, Selection of breakfast, lunch, dinner or snack options
+  2. Done - Recipe list page - based on the selection (breakfast, lunch ...). Recipe title, image, labels. Add filter by labels functionality. Like/unlike button
+  3. Done - Recipe details page - title, labels, picture, nutritional value (calculated and provided by the app in the backend), ingredients, steps. Like/unlike buttons. Add/update image button.
+  4. Done - Create new recipe page - Form to add title, ingredients (either one textbox for all, or separately, plus need to collect weight - grams, lb...), steps (textbox to add desc), save.
+  5. Done - weight trends page - a line chart and ability to log weight
 
   For now only 1 user will exist when implementing mvp. Later profiles can be implemented and the recipes will show based on the user.
 
     Out of scope for mvp
-   Share your recipe book interanally and via different social channels, explore friends recipes (similar to newsfeed), comment other recipes and ask questions, leaderboards, authentificaation, plan for a week, help with shopping list planning, integration with shopping ecommerce apps with ability to place an order and get delivery, daily consumed calories tracker, weight charts.... App suggests how to improve the recipe - how to balance nutritients by adding a new ingredient(for example add more veggies), how to substitute unheathy options based on your preferences, shows similar recipes...
+   Share your recipe book internally and via different social channels, explore friends recipes (similar to newsfeed), comment other recipes and ask questions, leaderboards, authentification, plan for a week, help with shopping list planning, integration with shopping ecommerce apps with ability to place an order and get delivery, daily consumed calories tracker.... App suggests how to improve the recipe - how to balance nutritients by adding a new ingredient(for example add more veggies), how to substitute unheathy options based on your preferences, shows similar recipes...
+   For now the nutritional values are calculated per 100 gram, adding ingredients measurements was out of scope of mvp. In the future this need to be added, and third party API needs to be changed to the ones that will work better for this use case (the current ones are very slow, not very accurate)
 
    Questions :
    How to calculate nutritional value? Need calories, carbs, protein et for each food. Use public API? OR generate and store the data in app's own database? (use sample or random data for mvp)
+   A: Used open source third party API

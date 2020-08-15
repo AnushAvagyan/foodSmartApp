@@ -17,7 +17,7 @@ const RecipeList = (props) => {
       var obj = { labels : filter };
     }
     $.ajax({
-      url: `http://localhost:3000/recipes/:${filterBy}`,
+      url: `http://localhost:3000/api/recipes/:${filterBy}`,
       data: obj,
       success: (data) => {
         setRecipes(data);

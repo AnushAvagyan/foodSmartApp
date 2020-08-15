@@ -27,7 +27,7 @@ class App extends React.Component {
     event.preventDefault();
 
     $.ajax({
-      url: 'http://localhost:3000/recipes',
+      url: 'http://localhost:3000/api/recipes',
       type: 'POST',
       data: $('form').serializeArray(),
       success: function(data) {
@@ -48,7 +48,7 @@ class App extends React.Component {
     imageData.append("image", image.files[0], image.files[0].name);
 
     $.ajax({
-      url: `http://localhost:3000/recipes/${image.id}/images`,
+      url: `http://localhost:3000/api/recipes/${image.id}/images`,
       type: 'POST',
       processData: false,
       contentType: false,
@@ -67,7 +67,7 @@ class App extends React.Component {
   likeRecipe(like, id) {
     var obj = {favorite: like};
     $.ajax({
-      url: `http://localhost:3000/recipes/${id}/favorite`,
+      url: `http://localhost:3000/api/recipes/${id}/favorite`,
       type: 'POST',
       data: obj,
       success: function(data) {

@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const {
   getRecipes,
   getRecipeById,
@@ -25,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 // get recipes data based on the meal type
-app.get('/recipes/:filter', function (req, res) {
+app.get('/api/recipes/:filter', function (req, res) {
     getRecipes(req.query, (data) => {
      res.status(200).json(data);
      res.end();
@@ -33,14 +34,14 @@ app.get('/recipes/:filter', function (req, res) {
  });
 
 //get recipe data based on id
-app.get('/recipe/:id', function (req, res) {
+app.get('/api/recipes/:id', function (req, res) {
   getRecipeById(req.params.id, (data) => {
     res.status(200).json(data);
     res.end();
   })
 });
 
-app.post('/recipes/:id/images', function(req, res) {
+app.post('/api/recipes/:id/images', function(req, res) {
   //console.log('recipe id test1', req.params.id);
   singleUpload(req, res, function (err) {
     if (err) {
@@ -61,7 +62,7 @@ app.post('/recipes/:id/images', function(req, res) {
   });
 });
 
-app.post('/recipes/:id/favorite', function(req, res) {
+app.post('/api/recipes/:id/favorite', function(req, res) {
   likeToggle(req.params.id, req.body, (data) => {
     res.status(200).json(data);
     res.end();
@@ -69,7 +70,7 @@ app.post('/recipes/:id/favorite', function(req, res) {
 });
 
 // add a new recipe
-app.post('/recipes', async function(req, res) {
+app.post('/api/recipes', async function(req, res) {
   var steps = req.body.steps.split('\r\n');
   req.body.steps = steps;
   req.body.nutrition = await getNutritionData(req.body.ingredients);
@@ -81,7 +82,7 @@ app.post('/recipes', async function(req, res) {
 });
 
 // add a new weight log
-app.post('/weight', function(req, res) {
+app.post('/api/weights', function(req, res) {
   setWeight(req.body, (data) => {
     getWeight({}, (data) => {
       res.status(200).json(data);
@@ -90,13 +91,16 @@ app.post('/weight', function(req, res) {
   })
 });
 
-app.get('/weight', function(req, res) {
+app.get('/api/weights', function(req, res) {
   getWeight({}, (data) => {
     res.status(200).json(data);
     res.end();
   })
 });
 
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../react-client/dist/index.html'));
+});
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');

@@ -13,7 +13,7 @@ const WeightLog = (props) => {
   useEffect(() => {
 
     $.ajax({
-      url: `http://localhost:3000/weight`,
+      url: `http://localhost:3000/api/weights`,
       type: 'GET',
       success: (data) => {
         console.log(data);
@@ -31,7 +31,7 @@ const WeightLog = (props) => {
     event.preventDefault();
 
     $.ajax({
-      url: 'http://localhost:3000/weight',
+      url: 'http://localhost:3000/api/weights',
       type: 'POST',
       data: $('form').serialize(),
       success: function(data) {
