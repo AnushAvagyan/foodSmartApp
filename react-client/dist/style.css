@@ -1,6 +1,6 @@
 body {
 
-  background-color: rgb(218, 216, 216);
+  background-color: #f7f4f1;
 }
 .card {
   padding-left: 70px;
@@ -14,15 +14,15 @@ h4 {
 }
 .nav {
   padding: 15px;
-  color: rgb(218, 216, 216);
-  background-color: rgb(95, 93, 93);
+  color: white;
+  background-color: #0e0e79;
   font-weight: bold;
   font-size: 1.1em;
 }
 .nav-link {
   padding: 15px;
-  color: rgb(218, 216, 216);
-  background-color: rgb(95, 93, 93);
+  color: white;
+  background-color: #0e0e79;
   font-weight: bold;
   margin-right: 35px;
   font-size: 1.1em;
@@ -32,7 +32,7 @@ h4 {
   text-align: center;
 }
 .title {
-  background-color: #5c7b80;
+  background-color: goldenrod;
   color: white;
 }
 .heading {
@@ -52,7 +52,7 @@ img {
 }
 h2 {
   padding-top: 20px;
-  color: gray;
+  color: black;
 }
 .text-muted {
   font-style: italic;

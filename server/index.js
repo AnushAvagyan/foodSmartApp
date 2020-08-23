@@ -34,7 +34,7 @@ app.get('/api/recipes/:filter', function (req, res) {
  });
 
 //get recipe data based on id
-app.get('/api/recipes/:id', function (req, res) {
+app.get('/api/recipes/id/:id', function (req, res) {
   getRecipeById(req.params.id, (data) => {
     res.status(200).json(data);
     res.end();

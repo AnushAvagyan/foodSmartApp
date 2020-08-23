@@ -22,7 +22,6 @@ const getRecipes = (filter, callback) => {
 // }
 
 const getRecipeById = (id, callback) => {
-
   Recipe.find({_id: id}).exec((err, data) => {
     if (err) {
       return console.error(err);
