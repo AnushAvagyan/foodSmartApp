@@ -15,7 +15,7 @@ const Recipe = (props) => {
   useEffect(() => {
 
     $.ajax({
-      url: `http://localhost:3000/api/recipes/${id}`,
+      url: `http://localhost:3000/api/recipes/id/${id}`,
       success: (data) => {
         setRecipe(data[0]);
 
