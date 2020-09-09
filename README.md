@@ -1,6 +1,6 @@
 # foodSmart
 
-> App will help to organize your recipe book - create, edit and improve your recipes, add pictures, get nutritional values, plan your meals, log and view your weight trends.
+> This is a MVP. App that helps you organize your recipe book - create, edit and improve your recipes, add pictures, get nutritional values, plan your meals, log and view your weight trends.
 
 ## Table of Contents
 
